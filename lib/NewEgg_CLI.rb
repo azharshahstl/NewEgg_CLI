@@ -1,5 +1,8 @@
-require "NewEgg_CLI/version"
+require_relative "../lib/product_scraper.rb" 
+require_relative "../lib/products.rb" 
+require "nokogiri"
+require "colorize" 
 
-module NewEggCLI
-  # Your code goes here...
-end
+class NewEggCLI 
+end 
+
