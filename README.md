@@ -1,6 +1,6 @@
 # NewEggCLI
 
-This project will Scrape the newegg website page for data on "Eggxtra hot deals".    It will return the name, price,   It will scrape the page of the appropriate category and display the scraped data which will include the name, price, and a brief description of the object.  The user will then be prompted again to pick another category.   
+This project will Scrape the newegg website page for data on "Eggxtra hot deals".    It will return the name, price and url.    The user will then be prompted to choose if they want to see 1) All THE PRODUCTS, 2) PRODUCTS UNDER $200, 3) PRODUCTS $200 AND OVER. It will return the selected info and then prompt the user for the same choices again.     
 
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/NewEgg_CLI`. To experiment with that code, run `bin/console` for an interactive prompt.
