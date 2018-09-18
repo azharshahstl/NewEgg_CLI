@@ -12,12 +12,13 @@ class Scraper
       product_hash[:url] = product.css("a").attribute("href").value
       product_hash[:name] = product.css(".itemDescription").text
       product_hash[:price] = product.css(".price-current").text.strip.split(" ")[0]
-      #add group rating 
-      #add item action
+      
       binding.pry
     end
-  
   end
   
-  
+  def self.ind_product_info 
+    doc = Nokogiri::HTML(open("https://www.newegg.com/Product/Product.aspx?Item=9SIAGK17VY6522&ignorebbr=1"))
+    ind_product_info = {} 
+    ind_product_info[:details] = doc.css(".item").css("li")
 end
