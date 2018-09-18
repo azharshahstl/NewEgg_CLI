@@ -20,6 +20,7 @@ class Scraper
   def self.ind_product_info 
     doc = Nokogiri::HTML(open("https://www.newegg.com/Product/Product.aspx?Item=9SIAGK17VY6522&ignorebbr=1"))
     ind_product_info = {} 
-    ind_product_info[:details] = doc.css(".item").css("li")
+    ind_product_info[:details] = doc.css(".item").css("li").text.strip
+    binding.pry
   end
 end

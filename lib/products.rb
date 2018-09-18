@@ -11,6 +11,7 @@ class Product
     @item_action = product_hash[:item_action]
     
     @all << self
+  end
     
   
 end
