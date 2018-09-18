@@ -17,10 +17,26 @@ class Scraper
     end
   end
   
-  def self.ind_product_info 
+  def self.ind_product_info_1 
     doc = Nokogiri::HTML(open("https://www.newegg.com/Product/Product.aspx?Item=9SIAGK17VY6522&ignorebbr=1"))
     ind_product_info = {} 
     ind_product_info[:details] = doc.css(".item").css("li").text.strip.gsub(/\r/," ").gsub(/\n/," ").squeeze
     binding.pry
   end
+  
+  def self.ind_product_info_2
+    doc = Nokogiri::HTML(open("https://www.newegg.com/Product/Product.aspx?Item=9SIADF16UR8486&ignorebbr=1"))
+    ind_product_info = {} 
+    ind_product_info[:details] = doc.css(".item").css("li").text.strip.gsub(/\r/," ").gsub(/\n/," ").squeeze
+    binding.pry
+  end
+  
+  def self.ind_product_info_3
+    doc = Nokogiri::HTML(open("ttps://www.newegg.com/Product/Product.aspx?Item=9SIAFH56RH8741&ignorebbr=1"))
+    ind_product_info = {} 
+    ind_product_info[:details] = doc.css(".item").css("li").text.strip.gsub(/\r/," ").gsub(/\n/," ").squeeze
+    binding.pry
+  end
+  
+  
 end
