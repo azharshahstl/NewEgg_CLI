@@ -8,7 +8,8 @@ class Scraper
     
     doc.css(".promotion-details").each do |product|
       product_hash = {}
-      product_hash[:url] = product.css("itemImage").attribute("href").value
+      #binding.pry
+      product_hash[:url] = product.css("a").attribute("href").value
       product_hash[:name] = product.css(".itemDescription").text
       product_hash[:price] = product.css(".price-current").text.strip.split(" ")[0]
       #add group rating 
