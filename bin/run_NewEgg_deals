@@ -3,4 +3,4 @@
 require_relative "../lib/NewEgg_CLI.rb"
 require_relative "../lib/product_scraper.rb"
 
-Scraper.ind_product_info
+Scraper.eggxtra_hot_deals
