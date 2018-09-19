@@ -12,13 +12,14 @@ class Product
     @all << self
   end
     
-    self.create_from_collecttion(array_of_products)
+  def self.create_from_collection(array_of_products)
     array_of_products.each do |product_hash| 
       self.new(product_hash)
     end
+  end
     
-    def self.all 
+  def self.all 
       @all 
-    end
+  end
   
 end

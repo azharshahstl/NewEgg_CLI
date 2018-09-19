@@ -12,10 +12,11 @@ class NewEggCLI
   
   def self.make_products 
     array_of_products = Scraper.scrape_eggxtra_hot_deals
-    Product.create_from_collecttion(array_of_products)
+    Product.create_from_collection(array_of_products)
   end
   
   def display_products
+  end
     
   
 end 
