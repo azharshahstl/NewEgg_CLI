@@ -16,5 +16,9 @@ class Product
     array_of_products.each do |product_hash| 
       self.new(product_hash)
     end
+    
+    def self.all 
+      @all 
+    end
   
 end
