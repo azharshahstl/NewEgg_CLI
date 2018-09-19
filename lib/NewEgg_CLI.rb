@@ -6,11 +6,11 @@ require "colorize"
 class NewEggCLI 
   
   def run 
-    self.make_products
-    self.display_products
+    make_products
+    display_products
   end
   
-  def self.make_products 
+  def make_products 
     array_of_products = Scraper.scrape_eggxtra_hot_deals
     Product.create_from_collection(array_of_products)
   end

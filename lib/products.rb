@@ -18,8 +18,10 @@ class Product
     end
   end
     
-  def self.all 
-      @all 
+  def self.all
+    #binding.pry
+      @all
+      
   end
   
 end
