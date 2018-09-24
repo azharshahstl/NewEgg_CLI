@@ -71,6 +71,19 @@ class NewEggCLI
   end 
   
   def display_rest_of_products
+    counter = 26
+    Product.all.each  do |product| 
+       
+      puts " "
+      puts "-----------------------------------------"
+      puts " "
+      puts "Product: #{counter}"
+      puts "#{product.name}" 
+      puts "#{product.price}" 
+      puts "#{product.url}"
+      sleep(1)
+      counter += 1
+    end
   end
     
   
