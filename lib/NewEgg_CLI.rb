@@ -23,9 +23,9 @@ class NewEggCLI
       puts "-----------------------------------------"
       puts " "
       puts "Product: #{counter}"
-      puts "#{product.name}" 
-      puts "#{product.price}" 
-      puts "#{product.url}"
+      puts "#{product.name.colorize(:green)}" 
+      puts "#{product.price.colorize(:green)}" 
+      puts "#{product.url.colorize(:green)}"
       sleep(1)
       counter += 1
     end
@@ -61,9 +61,9 @@ class NewEggCLI
       puts "-----------------------------------------"
       puts " "
       puts "Product: #{counter}"
-      puts "#{product.name}" 
-      puts "#{product.price}" 
-      puts "#{product.url}"
+      puts "#{product.name.colorize(:green)}" 
+      puts "#{product.price..colorize(:green)}" 
+      puts "#{product.url.colorize(:green)}"
       sleep(1)
       counter += 1
       end
@@ -78,9 +78,9 @@ class NewEggCLI
       puts "-----------------------------------------"
       puts " "
       puts "Product: #{counter}"
-      puts "#{product.name}" 
-      puts "#{product.price}" 
-      puts "#{product.url}"
+      puts "#{product.name.upcase.colorize(:green)}" 
+      puts "#{product.price.colorize(:green)}" 
+      puts "#{product.url.colorize(:green)}"
       sleep(1)
       counter += 1
     end
