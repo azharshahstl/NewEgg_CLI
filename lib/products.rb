@@ -2,14 +2,14 @@ class Product
   
   attr_accessor :url, :name, :price
   
-  @all = []
+ @@all = []
   
   def initialize(product_hash)
     @url = product_hash[:url]
     @name = product_hash[:name]
     @price = product_hash[:price] 
-    
-    @all << self
+    #binding.pry
+    @@all << self
   end
     
   def self.create_from_collection(array_of_products)
@@ -19,9 +19,7 @@ class Product
   end
     
   def self.all
-    #binding.pry
-      @all
-      
+      @@all
   end
   
 end

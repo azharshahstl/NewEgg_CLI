@@ -3,4 +3,4 @@
 require_relative "../lib/NewEgg_CLI.rb"
 
 
-Scraper.scrape_eggxtra_hot_deals
+NewEggCLI.new.run
