@@ -16,4 +16,5 @@ class Scraper
     products_array
   end
 
+
 end

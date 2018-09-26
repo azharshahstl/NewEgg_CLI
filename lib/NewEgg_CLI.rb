@@ -18,7 +18,6 @@ class NewEggCLI
   def display_all_products
     counter = 1
     Product.all.each  do |product| 
-       
       puts " "
       puts "-----------------------------------------"
       puts " "
@@ -26,7 +25,7 @@ class NewEggCLI
       puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
      # puts "#{product.price.colorize(:green)}" 
       puts "PRODUCT URL: #{product.url.colorize(:green)}"
-      sleep(0.5)
+      #sleep(0.5)
       counter += 1
     end
   end
@@ -44,13 +43,16 @@ class NewEggCLI
         display_all_products
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i
+        Product.all[input +1].url
         binding.pry
       elsif input == "2"
         display_first_25_products
-       puts "Enter the number of the product you would like more info on: "
+        puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i 
       elsif input == "3" 
         display_rest_of_products
+        puts "Enter the number of the product you would like more info on: "
+        input = gets.strip.to_i
       end
     else
       puts "Sorry you are not interested now, come back again when you are :)."
