@@ -14,10 +14,6 @@ class Scraper
       products_array << {url: product_url, name: product_name, price: product_price}
     end
     products_array
-    #binding.pry
   end
-  
- 
-  
-  
+
 end
