@@ -62,7 +62,7 @@ class NewEggCLI
       puts " "
       puts "Product: #{counter}"
       puts "#{product.name.colorize(:green)}" 
-      puts "#{product.price..colorize(:green)}" 
+      puts "#{product.price.colorize(:green)}" 
       puts "#{product.url.colorize(:green)}"
       sleep(1)
       counter += 1

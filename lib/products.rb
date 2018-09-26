@@ -8,8 +8,8 @@ class Product
     @url = product_hash[:url]
     @name = product_hash[:name]
     @price = product_hash[:price] 
-    #binding.pry
     @@all << self
+    binding.pry
   end
     
   def self.create_from_collection(array_of_products)
