@@ -15,8 +15,9 @@ class NewEggCLI
     Product.create_from_collection(array_of_products)
   end
   
-  def display_all_products
-    counter = 1
+  def display_products
+    input = gets.strip.to_i
+    counter == 0
     Product.all.each  do |product| 
       puts " "
       puts "-----------------------------------------"
@@ -39,9 +40,10 @@ class NewEggCLI
     input = gets.strip.to_i
     if input == 1
       make_products
-      puts "If you would you like to see all products displayed, enter 1"
-      puts "If you would like to see the first 25 products, enter 2"
-      puts "If you would like to see products 26 to the end, enter 3"
+      array_of_products = make_products
+      puts "There are currently #{array_of_products.size} products to view."
+      puts "How many products would you like to view?"
+      display_products
       input = gets.strip.to_i 
       if input == 1 
         display_all_products
