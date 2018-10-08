@@ -18,7 +18,8 @@ class Scraper
   
   def self.scrape_more_product_info
     doc = Nokogiri::HTML(open("https://www.newegg.com/Product/Product.aspx?Item=9SIA10V5JF7513&ignorebbr=1"))
-    doc.css(".item").text
+    doc.css(".item").text.gsub("\r\n", "").gsub("     ", " *")
+    
     binding.pry
   end
 
