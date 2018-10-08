@@ -3,5 +3,6 @@
 require_relative "../lib/NewEgg_CLI.rb"
 
 
-#NewEggCLI.new.run
-Scraper.scrape_more_product_info
+NewEggCLI.new.run
+#Scraper.scrape_more_product_info
+#Scraper.scrape_eggxtra_hot_deals

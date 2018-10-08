@@ -7,7 +7,7 @@ class Product
   def initialize(product_hash)
     @url = product_hash[:url]
     @name = product_hash[:name]
-    #@price = product_hash[:price] 
+    @price = product_hash[:price] 
     @@all << self
   end
     

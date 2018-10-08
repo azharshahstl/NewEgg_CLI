@@ -22,8 +22,12 @@ class NewEggCLI
       puts "-----------------------------------------"
       puts " "
       puts "Product: #{counter}"
-      puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
-     # puts "#{product.price.colorize(:green)}" 
+      puts "PRODUCT NAME: #{product.name.colorize(:green)}"
+        if product.price == nil
+          puts "PRODUCT PRICE: NOT AVAILABLE"
+        else
+          puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
+        end
       puts "PRODUCT URL: #{product.url.colorize(:green)}"
       #sleep(0.5)
       counter += 1
@@ -32,8 +36,8 @@ class NewEggCLI
   
   def displayCLI_options 
     puts "Would you like to see the Products available on NewEggs Eggxtra hot deals? 1 if yes, 2 if no. "
-    input = gets.strip
-    if input == "1"
+    input = gets.strip.to_i
+    if input == 1
       make_products
       puts "If you would you like to see all products displayed, enter 1"
       puts "If you would like to see the first 25 products, enter 2"
@@ -41,11 +45,11 @@ class NewEggCLI
       input = gets.strip.to_i 
       if input == 1 
         display_all_products
-        #binding.pry
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i
         product_info_url = Product.all[input + 1].url
-        Scraper.scrape_more_product_info(product_info_url)
+        binding.pry
+        #Scraper.scrape_more_product_info(product_info_url)
       elsif input == 2
         display_first_25_products
         puts "Enter the number of the product you would like more info on: "
@@ -69,7 +73,7 @@ class NewEggCLI
       puts " "
       puts "Product: #{counter}"
       puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
-      puts "#{product.price.colorize(:green)}" 
+      puts "PRODUCT PRICE: #{product.price.colorize(:green)}" 
       puts "PRODUCT URL: #{product.url.colorize(:green)}"
       sleep(0.5)
       counter += 1
@@ -86,7 +90,7 @@ class NewEggCLI
       puts " "
       puts "Product: #{counter}"
       puts "PRODUCT NAME: #{product.name.upcase.colorize(:green)}" 
-      puts "#{product.price.colorize(:green)}" 
+      puts "PRODUCT PRICE: #{product.price.colorize(:green)}" 
       puts "PRODUCT URL: #{product.url.colorize(:green)}"
       sleep(0.5)
       counter += 1
