@@ -16,7 +16,7 @@ class Scraper
     products_array
   end
   
-  def self.scrape_more_product_info(product_info)
+  def self.scrape_more_product_info
     doc = Nokogiri::HTML(open("https://www.newegg.com/Product/Product.aspx?Item=9SIA10V5JF7513&ignorebbr=1"))
     doc.css(".item").text
     binding.pry
