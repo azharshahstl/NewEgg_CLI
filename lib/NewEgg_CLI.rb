@@ -38,18 +38,20 @@ class NewEggCLI
       puts "If you would you like to see all products displayed, enter 1"
       puts "If you would like to see the first 25 products, enter 2"
       puts "If you would like to see products 26 to the end, enter 3"
-      input = gets.strip 
-      if input == "1" 
+      input = gets.strip.to_i 
+      if input == 1 
         display_all_products
-        puts "Enter the number of the product you would like more info on: "
-        input = gets.strip.to_i
         Product.all[input +1].url
         binding.pry
-      elsif input == "2"
+        puts "Enter the number of the product you would like more info on: "
+        input = gets.strip.to_i
+        #Product.all[input +1].url
+        
+      elsif input == 2
         display_first_25_products
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i 
-      elsif input == "3" 
+      elsif input == 3 
         display_rest_of_products
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i

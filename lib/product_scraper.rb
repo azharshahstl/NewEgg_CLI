@@ -15,6 +15,9 @@ class Scraper
     end
     products_array
   end
+  
+  def self.scrape_more_product_info
+  end
 
 
 end
