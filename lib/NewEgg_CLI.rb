@@ -17,8 +17,9 @@ class NewEggCLI
   
   def display_products
     input = gets.strip.to_i
-    counter == 0
     Product.all.each  do |product| 
+      counter = 1 
+      while counter != input + 1
       puts " "
       puts "-----------------------------------------"
       puts " "
@@ -32,6 +33,7 @@ class NewEggCLI
       puts "PRODUCT URL: #{product.url.colorize(:green)}"
       #sleep(0.5)
       counter += 1
+      end
     end
   end
   
