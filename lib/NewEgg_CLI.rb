@@ -60,8 +60,9 @@ class NewEggCLI
         display_rest_of_products
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i
-    else
+      else
       puts "Sorry you are not interested now, come back again when you are :)."
+      end
     end
   end 
   
