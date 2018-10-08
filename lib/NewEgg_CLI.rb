@@ -41,11 +41,12 @@ class NewEggCLI
       input = gets.strip.to_i 
       if input == 1 
         display_all_products
-        Product.all[input +1].url
-        binding.pry
+        #binding.pry
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i
-        #Product.all[input +1].url
+        product_info = Product.all[input + 1].url
+        Scraper.scrape_more_product_info(product_info)
+        
         
       elsif input == 2
         display_first_25_products

@@ -16,7 +16,8 @@ class Scraper
     products_array
   end
   
-  def self.scrape_more_product_info
+  def self.scrape_more_product_info(product_info)
+    doc = Nokogiri::HTML(open(Product.all[input + 1].url))
   end
 
 
