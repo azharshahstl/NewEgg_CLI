@@ -17,24 +17,25 @@ class NewEggCLI
   
   def display_products
     input = gets.strip.to_i
+    counter = 1
     Product.all.each  do |product| 
-      counter = 1 
-      while counter != input + 1
-      puts " "
-      puts "-----------------------------------------"
-      puts " "
-      puts "Product: #{counter}"
-      puts "PRODUCT NAME: #{product.name.colorize(:green)}"
-        if product.price == nil
-          puts "PRODUCT PRICE: NOT AVAILABLE"
-        else
-          puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
-        end
-      puts "PRODUCT URL: #{product.url.colorize(:green)}"
-      #sleep(0.5)
-      counter += 1
+      if counter <= input
+        puts " "
+        puts "-----------------------------------------"
+        puts " "
+        puts "Product: #{counter}"
+        puts "PRODUCT NAME: #{product.name.colorize(:green)}"
+          if product.price == nil
+            puts "PRODUCT PRICE: NOT AVAILABLE"
+          else
+            puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
+          end
+        puts "PRODUCT URL: #{product.url.colorize(:green)}"
+        #sleep(0.5)
+        counter += 1
       end
     end
+    puts "Enter the number of the product you would like more info on: "
   end
   
   def displayCLI_options 
