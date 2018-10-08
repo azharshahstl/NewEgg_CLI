@@ -31,7 +31,7 @@ class NewEggCLI
             puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
           end
         puts "PRODUCT URL: #{product.url.colorize(:green)}"
-        #sleep(0.5)
+        sleep(0.5)
         counter += 1
       end
     end
@@ -41,7 +41,9 @@ class NewEggCLI
   def displayCLI_options 
     puts "Would you like to see the Products available on NewEggs Eggxtra hot deals? 1 if yes, 2 if no. "
     input = gets.strip.to_i
-    if input == 1
+    if input == 2 
+      puts "Sorry you are not interested now, come back again when you are :)."
+    elsif input == 1
       make_products
       array_of_products = make_products
       puts "There are currently #{array_of_products.size} products to view."
@@ -55,15 +57,7 @@ class NewEggCLI
         product_info_url = Product.all[input + 1].url
         binding.pry
         #Scraper.scrape_more_product_info(product_info_url)
-      elsif input == 2
-        display_first_25_products
-        puts "Enter the number of the product you would like more info on: "
-        input = gets.strip.to_i 
-      elsif input == 3 
-        display_rest_of_products
-        puts "Enter the number of the product you would like more info on: "
-        input = gets.strip.to_i
-      else
+    else
       puts "Sorry you are not interested now, come back again when you are :)."
       end
     end
