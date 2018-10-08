@@ -68,40 +68,5 @@ class NewEggCLI
       end
     end
   end 
-  
-  def display_first_25_products 
-    counter = 1
-    Product.all.each  do |product| 
-      while counter < 26
-      puts " "
-      puts "-----------------------------------------"
-      puts " "
-      puts "Product: #{counter}"
-      puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
-      puts "PRODUCT PRICE: #{product.price.colorize(:green)}" 
-      puts "PRODUCT URL: #{product.url.colorize(:green)}"
-      sleep(0.5)
-      counter += 1
-      end
-    end
-  end 
-  
-  def display_rest_of_products
-    counter = 26
-    Product.all.each  do |product| 
-       
-      puts " "
-      puts "-----------------------------------------"
-      puts " "
-      puts "Product: #{counter}"
-      puts "PRODUCT NAME: #{product.name.upcase.colorize(:green)}" 
-      puts "PRODUCT PRICE: #{product.price.colorize(:green)}" 
-      puts "PRODUCT URL: #{product.url.colorize(:green)}"
-      sleep(0.5)
-      counter += 1
-    end
-  end
-    
-  
 end 
 
