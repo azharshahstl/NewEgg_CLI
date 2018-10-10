@@ -4,7 +4,7 @@ require "pry"
 class Scraper 
   
   def self.scrape_eggxtra_hot_deals 
-    doc = Nokogiri::HTML(open("https://www.newegg.com/marketplace/deals?cm_sp=Homepage_MKPL-_--_-10082018"))
+    doc = Nokogiri::HTML(open("https://www.newegg.com/marketplace/deals?cm_sp=Homepage_MKPL-_--_-10102018"))
     
     products_array = []
     
@@ -22,10 +22,13 @@ class Scraper
     
     doc = Nokogiri::HTML(open(product_info_url))
     
-    product_stocking_info = doc.css(".landingpage-stock").text
-    product_info = doc.css(".item").text.gsub("\r\n", "").gsub("     ", " *")
+    
+    product_info = doc.css(".item").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
+    product_shipping_info = doc.css(".grpNote-ship").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
+    product_sold_by_info = doc.css(".grpNote-sold-by").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
     puts "#{product_info}"
-    binding.pry
+    puts "#{product_shipping_info}"
+    puts "#{product_sold_by_info}
   end
 
 
