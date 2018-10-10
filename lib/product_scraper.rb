@@ -18,14 +18,15 @@ class Scraper
     products_array
   end
   
-  #def self.scrape_more_product_info(product_info_url)
+  def self.scrape_more_product_info(product_info_url)
     
-    #doc = Nokogiri::HTML(open(product_info_url))
+    doc = Nokogiri::HTML(open(product_info_url))
     
-    #product_info = doc.css(".item").text.gsub("\r\n", "").gsub("     ", " *")
-    
-    #binding.pry
- # end
+    product_stocking_info = doc.css(".landingpage-stock").text
+    product_info = doc.css(".item").text.gsub("\r\n", "").gsub("     ", " *")
+    puts "#{product_info}"
+    binding.pry
+  end
 
 
 end

@@ -48,17 +48,12 @@ class NewEggCLI
       array_of_products = make_products
       puts "There are currently #{array_of_products.size} products to view."
       puts "How many products would you like to view?"
+      
       display_products
-      input = gets.strip.to_i 
-      #after it gets input from line 52, it stops.  Line 54 on, needs to change.  Call second scraper method.  
-      if input == 1 
-        display_all_products
-        puts "Enter the number of the product you would like more info on: "
-        input = gets.strip.to_i
-        product_info_url = Product.all[input + 1].url
-        binding.pry
-        #Scraper.scrape_more_product_info(product_info_url)
-      end
+      
+      input = gets.strip.to_i
+      product_info_url = Product.all[input - 1].url
+      Scraper.scrape_more_product_info(product_info_url)
     end
   end 
 end 
