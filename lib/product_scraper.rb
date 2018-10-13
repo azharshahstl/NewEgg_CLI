@@ -28,7 +28,7 @@ class Scraper
     product_sold_by_info = doc.css(".grpNote-sold-by").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
     puts "#{product_info}"
     puts "#{product_shipping_info}"
-    puts "#{product_sold_by_info}
+    puts "#{product_sold_by_info}"
   end
 
 
