@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-#require_relative "../lib/NewEgg_environment"
+require_relative "../config/environment"
 
 
 
 
-NewEggCLI.new.run
+#NewEggCLI.new.run
