@@ -1,5 +1,4 @@
-require "open-uri" 
-require "pry" 
+
 
 class Scraper 
   
@@ -18,17 +17,14 @@ class Scraper
     products_array
   end
   
-  def self.scrape_more_product_info(product_info_url)
+  def self.scrape_more_product_info(product)
     
-    doc = Nokogiri::HTML(open(product_info_url))
+    doc = Nokogiri::HTML(open(product.url))
     
-    
-    product_info = doc.css(".item").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
-    product_shipping_info = doc.css(".grpNote-ship").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
-    product_sold_by_info = doc.css(".grpNote-sold-by").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
-    puts "#{product_info}"
-    puts "#{product_shipping_info}"
-    puts "#{product_sold_by_info}"
+    #check line 25 and look at its children.  Should not need all the gsubs.
+    product.info = doc.css(".item").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
+    product.shipping_info = doc.css(".grpNote-ship").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
+    product.sold_by_info = doc.css(".grpNote-sold-by").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
   end
 
 

@@ -1,6 +1,15 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/NewEgg_CLI.rb"
+#require_relative "../lib/NewEgg_environment"
+
+require "nokogiri"
+require "colorize" 
+require "open-uri" 
+require "pry" 
+
+require_relative "../lib/product_scraper.rb" 
+require_relative "../lib/products.rb" 
+require_relative "../lib/NewEgg_CLI.rb" 
 
 
 NewEggCLI.new.run

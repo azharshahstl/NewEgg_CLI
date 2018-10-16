@@ -1,12 +1,7 @@
-
-require_relative "../lib/product_scraper.rb" 
-require_relative "../lib/products.rb" 
-require "nokogiri"
-require "colorize" 
-
 class NewEggCLI 
   
   def run 
+    make_products
     displayCLI_options
   end
   
@@ -15,8 +10,7 @@ class NewEggCLI
     Product.create_from_collection(array_of_products)
   end
   
-  def display_products
-    input = gets.strip.to_i
+  def display_products#(input)
     counter = 1
     Product.all.each  do |product| 
       if counter <= input
@@ -44,17 +38,26 @@ class NewEggCLI
     if input == 2 
       puts "Sorry you are not interested now, come back again when you are :)."
     elsif input == 1
-      make_products
-      array_of_products = make_products
-      puts "There are currently #{array_of_products.size} products to view."
+      puts "There are currently #{Product.all.size} products to view."
       puts "How many products would you like to view?"
+      #get input(products_viewed) and validate it completely.
+      display_products#(products_viewed)
       
-      display_products
-      
-      input = gets.strip.to_i
-      product_info_url = Product.all[input - 1].url
-      Scraper.scrape_more_product_info(product_info_url)
+      input = gets.strip.to_i 
+      #validate line 46 input.
+      product = Product.all[input - 1]
+      Scraper.scrape_more_product_info(product) if product.info = nil
+      display_product(product)
+      #prompt user and do what they want to do. 
     end
   end 
+  
+  def display_product(product)
+    puts "#{product.info}"
+    puts "#{product.shipping_info}"
+    puts "#{product.sold_by_info}"
+  end
+    
+  
 end 
 
