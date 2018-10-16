@@ -2,6 +2,11 @@
 
 class Scraper 
   
+  def self.scrape_NewEgg_main_page
+    doc = Nokogiri::HTML (open("https://www.newegg.com/"))
+    eggxtra_hot_deals_url = doc.css(".featured-deal-bottom").attr
+  end
+  
   def self.scrape_eggxtra_hot_deals 
     doc = Nokogiri::HTML(open("https://www.newegg.com/marketplace/deals?cm_sp=Homepage_MKPL-_--_-10102018"))
     
