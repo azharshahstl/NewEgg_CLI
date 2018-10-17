@@ -3,9 +3,7 @@
 This project will Scrape the newegg website page for data on "Eggxtra hot deals".    It will tell the user, how many current porducts are available to be viewed.  It will aske the user, how many products they would like to view.  It will return the name, price and url of the number of products they chose to view.  It will then ask the user if they want more info on one of the objects they have viewed.  It will return the additional info (shipping info, seller info and additional info) of the choosen product.    
 
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/NewEgg_CLI`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
@@ -23,9 +21,6 @@ Or install it yourself as:
 
     $ gem install NewEgg_CLI
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
