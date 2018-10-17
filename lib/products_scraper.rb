@@ -5,7 +5,7 @@ class Scraper
   def self.scrape_NewEgg_main_page
     doc = Nokogiri::HTML (open("https://www.newegg.com/"))
     binding.pry
-    eggxtra_hot_deals_url = doc.css(".featured-deal-bottom").css("a").attribute("href").value
+    eggxtra_hot_deals_url = doc.css("a.featured-deal-bottom")[2].attribute("href").value
   end
   
   def self.scrape_eggxtra_hot_deals(eggxtra_hot_deals_url) 
