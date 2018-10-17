@@ -54,9 +54,9 @@ class NewEggCLI
   end 
   
   def display_product(product)
-    puts "#{product.info}"
-    puts "#{product.shipping_info}"
-    puts "#{product.sold_by_info}"
+    puts "#{product.info.colorize(:green)}"
+    puts "#{product.shipping_info.colorize(:yellow)}"
+    puts "#{product.sold_by_info.colorize(:purple)}"
   end
     
   

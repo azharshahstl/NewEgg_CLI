@@ -1,3 +1,4 @@
+
 class Product 
   
   attr_accessor :url, :name, :price
