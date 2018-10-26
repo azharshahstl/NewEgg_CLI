@@ -24,9 +24,8 @@ class Scraper
   def self.scrape_more_product_info(product)
     
     doc = Nokogiri::HTML(open(product.url))
-    binding.pry
-    self.info = doc.css(".grpBullet").css("li").text.gsub(/\s+/, " ").strip
-    self.sold_and_shipped_by_info = doc.css("p.grpNote-sold-by").text.strip
+    product.info = doc.css(".grpBullet").css("li").text.gsub(/\s+/, " ").strip
+    product.sold_and_shipped_by = doc.css("p.grpNote-sold-by").text.strip
   end
 
 

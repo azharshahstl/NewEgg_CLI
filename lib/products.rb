@@ -1,7 +1,7 @@
 
 class Product 
   
-  attr_accessor :url, :name, :price, :info, :shipping_info, :sold_by_info
+  attr_accessor :url, :name, :price, :info, :sold_and_shipped_by
   
  @@all = []
   

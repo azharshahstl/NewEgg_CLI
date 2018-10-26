@@ -46,7 +46,6 @@ class NewEggCLI
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i
         product = Product.all[input - 1]
-        #binding.pry
         Scraper.scrape_more_product_info(product)
         display_product(product)
         else 
@@ -63,9 +62,8 @@ class NewEggCLI
   end 
   
   def display_product(product)
-    puts "#{product.info.colorize(:green)}"
-    puts "#{product.shipping_info.colorize(:yellow)}"
-    puts "#{product.sold_by_info.colorize(:purple)}"
+    puts "#{product.info.colorize(:yellow)}"
+    puts "#{product.sold_and_shipped_by.colorize(:yellow)}"
   end
     
   
