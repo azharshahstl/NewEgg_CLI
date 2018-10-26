@@ -40,6 +40,9 @@ class NewEggCLI
     elsif input == 1
       puts "There are currently #{Product.all.size} products to view."
       puts "How many products would you like to view?"
+    else 
+      puts "I am sorry, I did not understand what you entered."
+      displayCLI_options
       #get input(products_viewed) and validate it completely.
       display_products#(products_viewed)
       
