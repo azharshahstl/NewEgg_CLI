@@ -41,13 +41,16 @@ class NewEggCLI
       puts "There are currently #{Product.all.size} products to view."
       puts "How many products would you like to view?"
       input = gets.strip.to_i 
-      
-      display_products(input)
+        if input >= 1 && input <= Product.all.size
+        display_products(input)
+        else 
+          puts "I am sorry, your input was ouside the range of products found."
+        end
     else 
       puts "I am sorry, I did not understand what you entered."
       displayCLI_options
       #get input(products_viewed) and validate it completely.
-      display_products#(products_viewed)
+      #display_products(products_viewed)
       
       input = gets.strip.to_i 
       #validate line 46 input.
