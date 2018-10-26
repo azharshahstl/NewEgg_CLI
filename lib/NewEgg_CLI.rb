@@ -44,12 +44,17 @@ class NewEggCLI
         if input >= 1 && input <= Product.all.size
         display_products(input)
         puts "Enter the number of the product you would like more info on: "
-        input = gets.strip.to_i
-        product = Product.all[input - 1]
-        Scraper.scrape_more_product_info(product)
-        puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
-        display_product(product)
-        displayCLI_options
+        product_input = gets.strip.to_i
+          if product_input >= 1 && product_input <= input
+          product = Product.all[input - 1]
+          Scraper.scrape_more_product_info(product)
+          puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
+          display_product(product)
+          displayCLI_options
+          else 
+            puts "I am sorry, your input was ouside the range of products found."
+            display_products(input)
+          end
         else 
           puts "I am sorry, your input was ouside the range of products found."
           displayCLI_options
