@@ -47,7 +47,9 @@ class NewEggCLI
         input = gets.strip.to_i
         product = Product.all[input - 1]
         Scraper.scrape_more_product_info(product)
+        puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
         display_product(product)
+        displayCLI_options
         else 
           puts "I am sorry, your input was ouside the range of products found."
           displayCLI_options
@@ -59,8 +61,8 @@ class NewEggCLI
   end 
   
   def display_product(product)
-    puts "#{product.info.colorize(:yellow)}"
-    puts "#{product.sold_and_shipped_by.colorize(:yellow)}"
+    puts "MORE PRODUCT INFO: #{product.info.colorize(:yellow)}"
+    puts "SOLD AND SHIPPED BY: #{product.sold_and_shipped_by.colorize(:yellow)}"
   end
     
   
