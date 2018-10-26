@@ -1,7 +1,7 @@
 
 class Product 
   
-  attr_accessor :url, :name, :price
+  attr_accessor :url, :name, :price, :info, :shipping_info, :sold_by_info
   
  @@all = []
   
@@ -12,8 +12,8 @@ class Product
     @@all << self
   end
     
-  def self.create_from_collection(array_of_products)
-    array_of_products.each do |product_hash| 
+  def self.create_from_collection(products_array)
+    products_array.each do |product_hash| 
       self.new(product_hash)
     end
   end
