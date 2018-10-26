@@ -29,7 +29,6 @@ class NewEggCLI
         counter += 1
       end
     end
-    #puts "Enter the number of the product you would like more info on: "
   end
   
   def displayCLI_options 
@@ -37,6 +36,7 @@ class NewEggCLI
     input = gets.strip.to_i
     if input == 2 
       puts "Sorry you are not interested now, come back again when you are. :)"
+      exit
     elsif input == 1
       puts "There are currently #{Product.all.size} products to view."
       puts "How many products would you like to view?"
@@ -55,9 +55,6 @@ class NewEggCLI
     else 
       puts "I am sorry, I did not understand what you entered."
       displayCLI_options
-   
-     
-      #prompt user and do what they want to do. 
     end
   end 
   
