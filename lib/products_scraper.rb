@@ -25,10 +25,8 @@ class Scraper
     
     doc = Nokogiri::HTML(open(product.url))
     binding.pry
-    #check line 25 and look at its children.  Should not need all the gsubs.
     self.info = doc.css(".grpBullet").css("li").text.gsub(/\s+/, " ").strip
-    self.shipping_info = doc.css(".grpNote-ship").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
-    self.sold_by_info = doc.css(".grpNote-sold-by").text.strip.gsub("\r\n       ", "").gsub("          ", "").gsub("      ", "")
+    self.sold_and_shipped_by_info = doc.css("p.grpNote-sold-by").text.strip
   end
 
 
