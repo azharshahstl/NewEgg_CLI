@@ -4,8 +4,7 @@ class Scraper
   
   def self.scrape_NewEgg_main_page
     doc = Nokogiri::HTML (open("https://www.newegg.com/"))
-    binding.pry
-    eggxtra_hot_deals_url = doc.css("a.featured-deal-bottom")[2].attribute("href").value
+    eggxtra_hot_deals_url = doc.css("a.featured-deal-bottom-more")[2].attribute("href").value
   end
   
   def self.scrape_eggxtra_hot_deals(eggxtra_hot_deals_url) 
@@ -18,9 +17,8 @@ class Scraper
       product_name = product.css(".itemDescription").text
       product_price = product.css(".price-current").text.strip.split(" ")[0]
       products_array << {url: product_url, name: product_name, price: product_price}
-      #binding.pry
     end
-    products_array
+    Product.create_from_collection(array_of_products)
   end
   
   def self.scrape_more_product_info(product)

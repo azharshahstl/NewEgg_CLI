@@ -8,7 +8,6 @@ class NewEggCLI
   def make_products 
     eggxtra_hot_deals_url = Scraper.scrape_NewEgg_main_page
     Scraper.scrape_eggxtra_hot_deals(eggxtra_hot_deals_url) 
-    Product.create_from_collection(array_of_products)
   end
   
   def display_products#(input)
