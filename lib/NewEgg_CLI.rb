@@ -46,8 +46,9 @@ class NewEggCLI
         puts "Enter the number of the product you would like more info on: "
         input = gets.strip.to_i
         product = Product.all[input - 1]
-      Scraper.scrape_more_product_info(product) if product.info = nil
-      display_product(product)
+        #binding.pry
+        Scraper.scrape_more_product_info(product)
+        display_product(product)
         else 
           puts "I am sorry, your input was ouside the range of products found."
           displayCLI_options
