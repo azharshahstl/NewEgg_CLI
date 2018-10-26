@@ -10,7 +10,7 @@ class NewEggCLI
     Scraper.scrape_eggxtra_hot_deals(eggxtra_hot_deals_url) 
   end
   
-  def display_products#(input)
+  def display_products(input)
     counter = 1
     Product.all.each  do |product| 
       if counter <= input
@@ -40,6 +40,9 @@ class NewEggCLI
     elsif input == 1
       puts "There are currently #{Product.all.size} products to view."
       puts "How many products would you like to view?"
+      input = gets.strip.to_i 
+      
+      display_products(input)
     else 
       puts "I am sorry, I did not understand what you entered."
       displayCLI_options
