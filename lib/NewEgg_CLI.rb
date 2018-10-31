@@ -40,12 +40,12 @@ class NewEggCLI
     elsif input == 1
       puts "There are currently #{Product.all.size} products to view."
       puts "How many products would you like to view?"
-      input = gets.strip.to_i 
-        if input >= 1 && input <= Product.all.size
+      products_input = gets.strip.to_i 
+        if products_input >= 1 && products_input <= Product.all.size
         display_products(input)
         puts "Enter the number of the product you would like more info on: "
         product_input = gets.strip.to_i
-          if product_input >= 1 && product_input <= input
+          if product_input >= 1 && product_input <= products_input
           product = Product.all[input - 1]
           Scraper.scrape_more_product_info(product)
           puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
