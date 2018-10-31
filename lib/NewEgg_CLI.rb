@@ -50,6 +50,14 @@ class NewEggCLI
           Scraper.scrape_more_product_info(product)
           puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
           display_product(product)
+          puts "Would you like to see the #{products_input} products again? (Y or N)"
+          review_input = gets.chomp.downcase
+            if review_input == "y" || review_input == "yes"
+              display_products(products_input)
+              displayCLI_options
+            elsif review_input == "n" || review_input == "no"
+              displayCLI_options
+            end
           #displayCLI_options
           else 
             puts "I am sorry, your input was ouside the range of products found."
