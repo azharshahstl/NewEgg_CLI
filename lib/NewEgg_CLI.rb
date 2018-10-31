@@ -49,6 +49,7 @@ class NewEggCLI
           product = Product.all[product_input - 1]
           Scraper.scrape_more_product_info(product)
           puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
+          puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
           display_product(product)
           puts "Would you like to see the #{products_input} products again? (Y or N)"
           review_input = gets.chomp.downcase
