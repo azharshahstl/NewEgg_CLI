@@ -9,7 +9,6 @@ class Scraper
   
   def self.scrape_eggxtra_hot_deals(eggxtra_hot_deals_url) 
     doc = Nokogiri::HTML(open(eggxtra_hot_deals_url))
-    puts "Scrapes deals"
     products_array = []
     
     doc.css(".promotion-details").each do |product|
@@ -22,7 +21,6 @@ class Scraper
   end
   
   def self.scrape_more_product_info(product)
-    puts "Scrapes more details"
     doc = Nokogiri::HTML(open(product.url))
     product.info = doc.css(".grpBullet").css("li").text.gsub(/\s+/, " ").strip
     product.sold_and_shipped_by = doc.css("p.grpNote-sold-by").text.strip
