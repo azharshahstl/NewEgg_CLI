@@ -63,7 +63,7 @@ class NewEggCLI
             end
           else 
             puts "I am sorry, your input was ouside the range of products found."
-            display_products(products_input)
+            displayCLI_options
           end
         else 
           puts "I am sorry, your input was ouside the range of products found."
