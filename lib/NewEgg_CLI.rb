@@ -57,8 +57,10 @@ class NewEggCLI
               displayCLI_options
             elsif review_input == "n" || review_input == "no"
               displayCLI_options
+            else 
+              puts "I am sorry, I did not understand what you wanted to do."
+              displayCLI_options
             end
-          #displayCLI_options
           else 
             puts "I am sorry, your input was ouside the range of products found."
             display_products(products_input)
