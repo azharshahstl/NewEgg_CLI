@@ -42,37 +42,13 @@ class NewEggCLI
       puts "How many products would you like to view?"
       products_input = gets.strip.to_i 
         if products_input >= 1 && products_input <= Product.all.size
-        display_products(products_input)
-        puts "Enter the number of the product you would like more info on: "
-        product_input = gets.strip.to_i
-          if product_input >= 1 && product_input <= products_input
-          product = Product.all[product_input - 1]
-          Scraper.scrape_more_product_info(product)
-          puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
-          puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
-          display_product(product)
-          puts "Would you like to see the #{products_input} products again? (Y or N)"
-          review_input = gets.chomp.downcase
-            if review_input == "y" || review_input == "yes"
-              display_products(products_input)
-              displayCLI_options
-            elsif review_input == "n" || review_input == "no"
-              displayCLI_options
-            else 
-              puts "I am sorry, I did not understand what you wanted to do."
-              displayCLI_options
-            end
-          else 
-            puts "I am sorry, your input was ouside the range of products found."
-            displayCLI_options
-          end
+          display_products(products_input)
+          get_product(products_input)
         else 
-          puts "I am sorry, your input was ouside the range of products found."
-          displayCLI_options
+          handle_error("I am sorry, your input was ouside the range of products found.")
         end
     else 
-      puts "I am sorry, I did not understand what you entered."
-      displayCLI_options
+      handle_error("I am sorry, I did not understand what you entered.")
     end
   end 
   
@@ -81,6 +57,34 @@ class NewEggCLI
     puts "SOLD AND SHIPPED BY: #{product.sold_and_shipped_by.colorize(:yellow)}"
   end
     
+  def get_product(products_input)
+    puts "Enter the number of the product you would like more info on: "
+    product_input = gets.strip.to_i
+    if product_input >= 1 && product_input <= products_input
+       product = Product.all[product_input - 1]
+       Scraper.scrape_more_product_info(product) if product.info == nil 
+       puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
+       puts "PRODUCT PRICE: #{product.price.colorize(:green)}"
+       display_product(product)
+       puts "Would you like to see the #{products_input} products again? (Y or N)"
+       review_input = gets.chomp.downcase
+        if review_input == "y" || review_input == "yes"
+          display_products(products_input)
+          get_product(products_input)
+        elsif review_input == "n" || review_input == "no"
+          displayCLI_options
+        else 
+          handle_error("I am sorry, I did not understand what you wanted to do.")
+        end
+     else 
+        handle_error("I am sorry, your input was ouside the range of products found.")
+     end
+  end
+        
+  def handle_error(string)
+    puts string
+    displayCLI_options
+  end
   
 end 
 
