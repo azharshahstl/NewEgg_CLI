@@ -10,10 +10,10 @@ class NewEggCLI
     Scraper.scrape_eggxtra_hot_deals(eggxtra_hot_deals_url) 
   end
   
-  def display_products(input)
+  def display_products(products_input)
     counter = 1
     Product.all.each  do |product| 
-      if counter <= input
+      if counter <= products_input
         puts " "
         puts "-----------------------------------------"
         puts " "
@@ -42,18 +42,18 @@ class NewEggCLI
       puts "How many products would you like to view?"
       products_input = gets.strip.to_i 
         if products_input >= 1 && products_input <= Product.all.size
-        display_products(input)
+        display_products(products_input)
         puts "Enter the number of the product you would like more info on: "
         product_input = gets.strip.to_i
           if product_input >= 1 && product_input <= products_input
-          product = Product.all[input - 1]
+          product = Product.all[product_input - 1]
           Scraper.scrape_more_product_info(product)
           puts "PRODUCT NAME: #{product.name.colorize(:green)}" 
           display_product(product)
-          displayCLI_options
+          #displayCLI_options
           else 
             puts "I am sorry, your input was ouside the range of products found."
-            display_products(input)
+            display_products(products_input)
           end
         else 
           puts "I am sorry, your input was ouside the range of products found."
